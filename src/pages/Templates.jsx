@@ -9,6 +9,7 @@ import {
     FileSpreadsheet,
     FileChartLine
 } from 'lucide-react';
+import { api } from '../lib/api';
 
 const Templates = () => {
     const [templates, setTemplates] = useState([]);
