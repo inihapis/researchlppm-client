@@ -163,9 +163,9 @@ const Dashboard = () => {
                 </div>
 
                 <div className="lg:col-span-4 space-y-6">
-                    <div className="card border-none bg-[#22106f] text-white shadow-2xl overflow-hidden relative group">
+                    <div className="card border-none bg-[#22106f] shadow-2xl overflow-hidden relative group">
                         <div className="relative z-10">
-                            <h4 className="font-black mb-4 flex items-center gap-2 uppercase tracking-tighter text-sm">
+                            <h4 className="font-black text-[#22106f] mb-4 flex items-center gap-2 uppercase tracking-tighter text-sm">
                                 <Activity size={18} className="text-[#e6780f]" />
                                 Grant Opportunities
                             </h4>
@@ -176,7 +176,7 @@ const Dashboard = () => {
                                     <p className="text-[10px] text-slate-300 mt-2">Deadline: 20 May 2026</p>
                                 </div>
                                 <div className="p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors cursor-pointer border-l-4 border-[#e6780f]">
-                                    <p className="text-xs font-black uppercase text-white/60">Internal Grant</p>
+                                    <p className="text-xs font-black uppercase text-[#e6780f]">Internal Grant</p>
                                     <p className="text-sm font-bold mt-1">UNAMA Research Circle 02</p>
                                     <p className="text-[10px] text-slate-300 mt-2">Deadline: 15 June 2026</p>
                                 </div>

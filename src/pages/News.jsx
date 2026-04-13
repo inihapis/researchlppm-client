@@ -66,7 +66,7 @@ const News = () => {
                 ))}
             </div>
 
-            <div className="mt-16 card bg-[#22106f] border-none shadow-2xl p-12 text-white overflow-hidden relative">
+            <div className="mt-16 card bg-[#22106f] border-none shadow-2xl p-12 overflow-hidden relative">
                 <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
                     <div className="md:w-1/2">
                         <h4 className="text-3xl font-black mb-4 leading-tight tracking-tighter italic">Connect to <span className="text-orange-400 uppercase">External Bulletin</span></h4>
