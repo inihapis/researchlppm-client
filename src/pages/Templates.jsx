@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { 
-    FileText, 
-    Download, 
-    Archive, 
-    FilePlus, 
+import {
+    FileText,
+    Download,
+    Archive,
+    FilePlus,
     Search,
     ChevronDown,
     FileSpreadsheet,
@@ -13,11 +12,11 @@ import {
 
 const Templates = () => {
     const [templates, setTemplates] = useState([]);
-    
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/templates');
+                const res = await api.get('/api/templates');
                 setTemplates(res.data);
             } catch (err) {
                 console.error(err);

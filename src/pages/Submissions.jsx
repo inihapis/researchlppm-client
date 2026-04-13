@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from "react-dom";
-import axios from 'axios';
 import {
     Plus,
     Search,
@@ -18,6 +17,7 @@ import {
     ArrowUpRight,
     Clipboard
 } from 'lucide-react';
+import { api } from '../lib/api';
 import { useRole } from '../context/RoleContext';
 
 const Submissions = () => {
@@ -48,7 +48,7 @@ const Submissions = () => {
     const fetchSubmissions = async () => {
         setLoading(true);
         try {
-            const res = await axios.get('http://localhost:5000/api/submissions');
+            const res = await api.get('/api/submissions');
             // If Dosen, we simulate only seeing own submissions
             if (role === 'Dosen') {
                 // In a real app we'd filter by user ID. Here we just take the first few or filter by a tag.
@@ -68,7 +68,7 @@ const Submissions = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/api/submissions', formData);
+            await api.post('/api/submissions', formData);
             setFormData({ title: '', category: 'Penelitian', type: 'Internal', description: '' });
             setIsFormOpen(false);
             fetchSubmissions();
@@ -80,7 +80,7 @@ const Submissions = () => {
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.patch(`http://localhost:5000/api/submissions/${selectedSub.id}`, reviewData);
+            await api.patch(`/api/submissions/${selectedSub.id}`, reviewData);
             setSelectedSub(null);
             fetchSubmissions();
         } catch (err) {
@@ -91,10 +91,10 @@ const Submissions = () => {
     const handleAddProgress = async (e) => {
         e.preventDefault();
         try {
-            await axios.post(`http://localhost:5000/api/submissions/${selectedSub.id}/progress`, { content: progressText });
+            await api.post(`/api/submissions/${selectedSub.id}/progress`, { content: progressText });
             setProgressText('');
             // Refresh local selectedSub
-            const res = await axios.get('http://localhost:5000/api/submissions');
+            const res = await api.get('/api/submissions');
             const updated = res.data.find(s => s.id === selectedSub.id);
             setSelectedSub(updated);
             fetchSubmissions();

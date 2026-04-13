@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { 
-    Users, 
-    ExternalLink, 
+import { api } from '../lib/api';
+import {
+    Users,
+    ExternalLink,
     BookOpen,
     Globe,
     GraduationCap,
@@ -17,12 +17,12 @@ import { useRole } from '../context/RoleContext';
 const Lecturers = () => {
     const { role } = useRole();
     const [lecturers, setLecturers] = useState([]);
-    
+
     useEffect(() => {
         if (role === 'Admin') {
             const fetchData = async () => {
                 try {
-                    const res = await axios.get('http://localhost:5000/api/lecturers');
+                    const res = await api.get('/api/lecturers');
                     setLecturers(res.data);
                 } catch (err) {
                     console.error(err);
